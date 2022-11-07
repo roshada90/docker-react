@@ -1,25 +1,8 @@
 version: '3'
 services:
-  react-app: 
-    # build: . 
-    # above command will not work since we have dockerfile.dev and not dockerfile
+  web:
     build: 
       context: .
-      dockerfile: dockerfile.dev
+      dockerfile: dockerfile
     ports:
-      - "3001:3001"
-    volumes:
-      - /app/node_modules
-      - .:/app
-  tests:
-    build:
-      context: .
-      dockerfile: dockerfile.dev
-    volumes:
-      - /app/node_modules
-      - .:/app
-    command: ["npm", "run", "test"]
-
-
-
-
+      - '80:80'
